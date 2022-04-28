@@ -10,8 +10,8 @@
         </div>
       </div>
 
-      <div style="padding-top: 1rem;" class="row">
-        <div class="col-8">
+      <div style="padding-top: 2rem;" class="row">
+        <div class="col-8" style="padding-top: 1rem;">
           <h2>Conversation</h2>
         </div>
         <div class="col-1">
@@ -29,7 +29,7 @@
         
       <div>
         {% for message in room_messages %}
-        <div class="card" style="margin-top: 15px">
+        <div class="card" style="margin-top: 1.2rem;background-color: #212529;color: whitesmoke;">
           <div class="card-header">
             <span>@{{message.user}} </span>
             <span>{{message.created | timesince}} ago</span>
@@ -50,22 +50,16 @@
       </div>
     </div>
     <div class="col-3">
-      <!-- <h3>Participants</h3>
-      <hr />
 
-      {% for user in participants %}
-      <div>
-        <p>@{{user.username}}</p>
-      </div>
-      {% endfor %} -->
       <div>
         <h3>Participants</h3>
         <hr />
         {% for user in participants %}
         <div class="list-group">
           <a
-            href="{% url 'home' %}?q={{topic.name}}"
+            href="{% url 'home' %}?q={{user.username}}"
             class="list-group-item list-group-item-action"
+            style="background-color: #212529; color: darkgray;"
             >@{{user.username}}</a
           >
         </div>
