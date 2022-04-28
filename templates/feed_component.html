@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-9">
+    <h5>{{room_count}} rooms available</h5>
+  </div>
+  <div class="col-3">
+    <a
+      href="{% url 'create-room' %}"
+      class="list-group-item list-group-item-action active"
+      aria-current="true"
+    >
+      Create New Room
+    </a>
+  </div>
+</div>
+
+<div>
+  {% for room in rooms%}
+  <div class="card" style="margin-top: 15px">
+    <div class="card-header">
+      <span>@{{room.host.username}}</span>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">
+        <a style="text-decoration: none" href="/room/{{room.id}}"
+          >{{room.name}}</a
+        >
+      </h3>
+      <p class="card-text">{{room.topic.name}}</p>
+      {% if request.user == request.host %}
+      <a href="{% url 'update-room' room.id  %}" class="btn btn-primary">
+        Edit</a
+      >
+      <a href="{% url 'delete-room' room.id %}" class="btn btn-primary"
+        >Delete</a
+      >
+      {%endif%}
+    </div>
+  </div>
+  {% endfor %}
+</div>

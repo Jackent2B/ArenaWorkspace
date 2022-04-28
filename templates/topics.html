@@ -1,0 +1,21 @@
+<div>
+  <h3>Browse Topics</h3>
+  <hr />
+
+  <a
+    href="{% url 'home' %}"
+    class="list-group-item list-group-item-action active"
+    aria-current="true"
+  >
+    All Available Topics
+  </a>
+  {% for topic in topics%}
+  <div class="list-group">
+    <a
+      href="{% url 'home' %}?q={{topic.name}}"
+      class="list-group-item list-group-item-action"
+      >{{topic.name}}</a
+    >
+  </div>
+  {%endfor%}
+</div>
