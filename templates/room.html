@@ -5,21 +5,28 @@
     <div class="col-9">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">{{room.name}}</h1>
+          <h1 class="display-3">{{room.name}}</h1>
           <p class="lead">{{room.description}}</p>
         </div>
       </div>
-      <h1></h1>
 
-      <h3>Conversation</h3>
-      {% if request.user.is_authenticated %}
-      <div class="comment-form">
-        <form action="" method="post">
-          {% csrf_token %}
-          <input type="text" name="body" placeholder="Enter your Message" />
-        </form>
+      <div style="padding-top: 1rem;" class="row">
+        <div class="col-8">
+          <h2>Conversation</h2>
+        </div>
+        <div class="col-1">
+          {% if request.user.is_authenticated %}
+          <div class="comment-form">
+            <form action="" method="post">
+              {% csrf_token %}
+              <label for="">Message</label>
+              <input type="text" name="body" placeholder="Write your Message" />
+            </form>
+          </div>
+          {% endif %}
+        </div>
       </div>
-      {% endif %}
+        
       <div>
         {% for message in room_messages %}
         <div class="card" style="margin-top: 15px">
@@ -43,14 +50,29 @@
       </div>
     </div>
     <div class="col-3">
-      <h3>Participants</h3>
+      <!-- <h3>Participants</h3>
       <hr />
 
       {% for user in participants %}
       <div>
         <p>@{{user.username}}</p>
       </div>
-      {% endfor %} {%endblock content%}
+      {% endfor %} -->
+      <div>
+        <h3>Participants</h3>
+        <hr />
+        {% for user in participants %}
+        <div class="list-group">
+          <a
+            href="{% url 'home' %}?q={{topic.name}}"
+            class="list-group-item list-group-item-action"
+            >@{{user.username}}</a
+          >
+        </div>
+        {%endfor%}
+      </div>
     </div>
   </div>
 </div>
+
+{%endblock content%}
