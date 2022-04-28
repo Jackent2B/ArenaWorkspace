@@ -17,6 +17,20 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home </a>
         </li>
+        
+      </ul>
+      <form class="d-flex" method="GET" action="{% url 'home' %}">
+        <input
+          class="form-control me-2"
+          placeholder="Search"
+          aria-label="Search"
+          type="text"
+          name="q"
+          placeholder="Search Rooms"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav mb-2 mb-lg-0">
         {% if request.user.is_authenticated %}
         <li class="nav-item active">
           <a class="nav-link" href="/">{{request.user}} </a>
@@ -30,17 +44,6 @@
         </li>
         {% endif %}
       </ul>
-      <form class="d-flex" method="GET" action="{% url 'home' %}">
-        <input
-          class="form-control me-2"
-          placeholder="Search"
-          aria-label="Search"
-          type="text"
-          name="q"
-          placeholder="Search Rooms"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
