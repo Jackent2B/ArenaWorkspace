@@ -1,62 +1,56 @@
 {% extends 'main.html' %} {%block content%}
 
-<style>
-    .room-container{
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-    }
-</style>
-
-<div class="room-container">
-    <div>
-        <h1>{{room.name}}</h1>
-
-        <p>{{room.description}}</p>
-        
-        <div class="comment-container">
-            <h3>Conversation</h3>
-            <hr>
-        
-            {% for message in room_messages %}
-                <div>
-                    {% if request.user == message.user %}
-                    <a href="{% url 'delete-message' message.id%}">Delete</a>
-                    {% endif %}
-
-                    <small>@{{message.user}} {{message.created | timesince}} ago</small>
-                    <p>{{message.body}}</p>
-                    
-                    <hr>
-                </div>
-            {% endfor %}
-        
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">{{room.name}}</h1>
+          <p class="lead">{{room.description}}</p>
         </div>
-        
-        {% if request.user.is_authenticated %}
-        <div class="comment-form">
-            <form action="" method="post">
-                {% csrf_token %}
-                <input type="text" name="body" placeholder="Enter your Message" />
-            </form>
+      </div>
+      <h1></h1>
+
+      <h3>Conversation</h3>
+      {% if request.user.is_authenticated %}
+      <div class="comment-form">
+        <form action="" method="post">
+          {% csrf_token %}
+          <input type="text" name="body" placeholder="Enter your Message" />
+        </form>
+      </div>
+      {% endif %}
+      <div>
+        {% for message in room_messages %}
+        <div class="card" style="margin-top: 15px">
+          <div class="card-header">
+            <span>@{{message.user}} </span>
+            <span>{{message.created | timesince}} ago</span>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{message.body}}</p>
+
+            {% if request.user == message.user %}
+            <a
+              href="{% url 'delete-message' message.id%}"
+              class="btn btn-danger"
+              >Delete</a
+            >
+            {% endif %}
+          </div>
         </div>
-        {% endif %}
-
-    </div>
-    
-    <div>
-        <h3>Participants</h3>
-        <hr>
-
-        {% for user in participants %}
-            <div>
-                <p>@{{user.username}}</p>
-            </div>
         {% endfor %}
-
+      </div>
     </div>
-    
+    <div class="col-3">
+      <h3>Participants</h3>
+      <hr />
+
+      {% for user in participants %}
+      <div>
+        <p>@{{user.username}}</p>
+      </div>
+      {% endfor %} {%endblock content%}
+    </div>
+  </div>
 </div>
-
-
-
-{%endblock content%}
