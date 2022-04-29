@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+from sqlalchemy import true
 from .models import Room, Topic, Message
 from .forms import RoomForm
 from django.db.models import Q
@@ -107,7 +108,9 @@ def createRoom(request):
     if request.method == 'POST' :
         form = RoomForm(request.POST)
         if form.is_valid():
-            form.save()
+            room=form.save(commit=False)
+            room.host = request.user
+            room.save()
             return redirect('home')
 
     context = {'form':form}
