@@ -15,17 +15,19 @@
 
 <div>
   {% for room in rooms%}
-  <div class="card" style="margin-top: 15px; background-color: #212529;">
-    <div class="card-header" style="color:rgb(63, 127, 245)">
-      <span>@{{room.host.username}}</span>
+  <div class="card" style="margin-top: 15px; background-color: #212529">
+    <div class="card-header" style="color: rgb(63, 127, 245)">
+      <a href="/user-profile/{{room.host.id}}">@{{room.host.username}}</a>
     </div>
     <div class="card-body">
       <h3 class="card-title">
-        <a style="text-decoration: none; color: aliceblue;" href="/room/{{room.id}}"
+        <a
+          style="text-decoration: none; color: aliceblue"
+          href="/room/{{room.id}}"
           >{{room.name}}</a
         >
       </h3>
-      <p class="card-text" style="color: darkgray;" >{{room.topic.name}}</p>
+      <p class="card-text" style="color: darkgray">{{room.topic.name}}</p>
       {% if request.user == request.host %}
       <a href="{% url 'update-room' room.id  %}" class="btn btn-primary">
         Edit</a
