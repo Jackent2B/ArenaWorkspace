@@ -1,0 +1,32 @@
+Workflow
+
+- database modelling and connection
+  - Models
+    - Room
+    - Topic 
+    - Message
+    - User
+
+  - Connections
+    - Room -> Topic (topics -> many-to-one) 
+    - Room -> User (host -> many-to-one, participants -> many-to-many)
+    - Message -> User (user -> many-to-one)
+    - Message -> Room (room -> many-to-one)
+
+- Api's -> 
+    - userProfile
+    - loginPage
+    - registerPage
+    - logoutUser
+    - home
+    - room
+    - createRoom 
+    - updateRoom
+    - deleteRoom
+    - deleteMessage
+
+- Search feature implemented
+- User authentication and authorization
+- Chat room message feature
+- Recent activity added
+- Frontend added.
