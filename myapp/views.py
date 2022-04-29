@@ -69,7 +69,7 @@ def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     
     rooms = Room.objects.filter(
-        Q(topic__name__icontains = q) | Q(name__icontains = q) | Q(description__icontains = q) | Q(host__username__icontains = q)
+        Q(topic__name__icontains = q) | Q(name__icontains = q) | Q(description__icontains = q)
     )
 
     topics = Topic.objects.all()
@@ -105,8 +105,9 @@ def userProfile(request,pk):
     # to get all the childern of the specific object 
     rooms = user.room_set.all()
     room_messages = user.message_set.all()
+    room_count = rooms.count()
     topics = Topic.objects.all()
-    context={'user':user,'rooms':rooms,'topics':topics,'room_messages':room_messages}
+    context={'user':user,'rooms':rooms,'topics':topics,'room_messages':room_messages,'room_count':room_count}
     return render(request, 'profile.html',context)
 
 @login_required(login_url='login')

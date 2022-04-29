@@ -57,7 +57,7 @@
         {% for user in participants %}
         <div class="list-group">
           <a
-            href="{% url 'home' %}?q={{user.username}}"
+            href="{% url 'user-profile' user.id %}"
             class="list-group-item list-group-item-action"
             style="background-color: #212529; color: darkgray;"
             >@{{user.username}}</a
