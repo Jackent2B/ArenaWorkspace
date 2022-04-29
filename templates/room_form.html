@@ -1,13 +1,11 @@
-{% extends 'main.html' %} 
-
-{%block content%}
+{% extends 'main.html' %} {%block content%}
 
 <div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit" />
-    </form>
+  <h3 style="text-align: center">Room Form</h3>
+  <form method="POST" action="">
+    {% csrf_token %} {{form.as_p}}
+    <input type="submit" value="Submit" />
+  </form>
 </div>
 
 {% endblock content%}
