@@ -27,13 +27,18 @@
           name="q"
           placeholder="Search Rooms"
         />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
       <ul class="navbar-nav mb-2 mb-lg-0">
         {% if request.user.is_authenticated %}
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'user-profile' user.id %}"
             >{{request.user}}
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'update-user' %}"
+            >Edit Profile
           </a>
         </li>
         <li class="nav-item active">

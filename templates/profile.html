@@ -10,7 +10,13 @@
 
 {% block content %}
 
-<h3 style="text-align: center; margin: 1.5rem auto;" >{{user.username}}</h3>
+<p style="font-size: 2.5rem;text-align: center; margin: 1.5rem auto;" >{{user.username}}
+    {% if request.user == user %}
+    <a href="{% url 'update-user' %}" class="btn btn-warning">
+        Edit Profile</a
+    >
+    {% endif %}
+</p>
 
 <div class="container">
     <div class="row">

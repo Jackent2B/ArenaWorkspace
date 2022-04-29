@@ -1,41 +1,21 @@
-{% include 'main.html' %} {% extends 'block content' %}
-<form>
+{% extends 'main.html' %} {% block content %}
+
+<h3>Edit your Profile</h3>
+<form action="" method="POST">
+  {% csrf_token %}
+
+
+  {% for field in form %}
   <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleFormControlInput1"
-      placeholder="name@example.com"
-    />
+    <label for="">{{field.label}}</label>
+    {{field}}
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+  {% endfor %}
+  
+  <div class="form-action">
+    <a href="/">Cancel</a>
+    <button type="submit">Update</button>
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea
-      class="form-control"
-      id="exampleFormControlTextarea1"
-      rows="3"
-    ></textarea>
-  </div>
+
 </form>
-{% extends 'endblock content'%}
+{% endblock content %}
