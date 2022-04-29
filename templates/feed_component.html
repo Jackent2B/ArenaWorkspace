@@ -28,11 +28,11 @@
         >
       </h3>
       <p class="card-text" style="color: darkgray">{{room.topic.name}}</p>
-      {% if request.user == request.host %}
-      <a href="{% url 'update-room' room.id  %}" class="btn btn-primary">
+      {% if request.user == room.host %}
+      <a href="{% url 'update-room' room.id  %}" class="btn btn-warning">
         Edit</a
       >
-      <a href="{% url 'delete-room' room.id %}" class="btn btn-primary"
+      <a href="{% url 'delete-room' room.id %}" class="btn btn-danger"
         >Delete</a
       >
       {%endif%}

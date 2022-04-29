@@ -1,32 +1,36 @@
+Backend - Django
+Frontend - HTML, CSS, Boostrap
+
 Workflow
+- Database designing (Lakshya and Jayant )
 
-- database modelling and connection
-  - Models
-    - Room
-    - Topic 
-    - Message
-    - User
+- database modelling and connection (Lakshya)
+- Models
+- Room
+- Topic
+- Message
+- User
 
-  - Connections
-    - Room -> Topic (topics -> many-to-one) 
-    - Room -> User (host -> many-to-one, participants -> many-to-many)
-    - Message -> User (user -> many-to-one)
-    - Message -> Room (room -> many-to-one)
+- Table Connections (Jayant and Lakshya)
+- Room -> Topic (topics -> many-to-one)
+- Room -> User (host -> many-to-one, participants -> many-to-many)
+- Message -> User (user -> many-to-one)
+- Message -> Room (room -> many-to-one)
 
-- Api's -> 
-    - userProfile
-    - loginPage
-    - registerPage
-    - logoutUser
-    - home
-    - room
-    - createRoom 
-    - updateRoom
-    - deleteRoom
-    - deleteMessage
+- Api's ->
+- userProfile (Jayant)
+- loginPage (Jayant)
+- registerPage (Jayant)
+- logoutUser (Jayant)
+- home  (Jayant)
+- room (Lakshya)
+- createRoom (Lakshya)
+- updateRoom (Lakshya)
+- deleteRoom (Lakshya)
+- deleteMessage
 
-- Search feature implemented
-- User authentication and authorization
-- Chat room message feature
-- Recent activity added
-- Frontend added.
+- Search feature implemented (Lakshya)
+- User authentication and authorization (Jayant)
+- Chat room message feature (lakshya)
+- Recent activity added (Jayant)
+- Frontend added. (Jayant and Lakshya)

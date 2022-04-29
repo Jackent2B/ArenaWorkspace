@@ -8,15 +8,6 @@ from django.contrib.auth import authenticate,login,logout
 from .models import Room, Topic, Message
 from .forms import RoomForm
 from django.db.models import Q
-
-# rooms = [
-#     {"id":1, "name": "Room 1"},
-#     {"id":2, "name": "Room 2"},
-#     {"id":3, "name": "Room 3"},
-#     {"id":4, "name": "Room 4"},
-    
-# ]
-
 # Create your views here.
 
 def loginPage(request):
