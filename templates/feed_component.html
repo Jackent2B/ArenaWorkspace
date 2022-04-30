@@ -2,15 +2,11 @@
   <div class="col-8">
     <h5>{{room_count}} rooms available</h5>
   </div>
+  {% if request.user == user %}
   <div class="col-4">
-    <a
-      href="{% url 'create-room' %}"
-      class="list-group-item list-group-item-action active"
-      aria-current="true"
-    >
-      Create Room
-    </a>
+    {% include 'create_room_component.html' %}
   </div>
+  {% endif %}
 </div>
 
 <div>
