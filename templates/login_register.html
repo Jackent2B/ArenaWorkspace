@@ -2,7 +2,7 @@
 
 {% if page == "login"%}
 
-<div class="container" style="max-width: 35rem;">
+<div class="container" style="max-width: 35rem;padding-top: 2rem;">
     <h3 style="text-align: center;">Login Page</h3>
     <form method="POST" action="">
         {% csrf_token %}
@@ -20,15 +20,20 @@
     <p>Don't have an account? <a style="text-decoration: none;" href="{% url 'register' %}">Register Here</a></p>
 </div>
 {% else %}
- <div class="container" style="max-width: 35rem;">
+ <div class="container" style="max-width: 35rem;padding-top: 2rem;">
     <h3 style="text-align: center;">Register Page</h3>
     <form method="POST" action="">
         {% csrf_token %}
-        {{form.as_p}}
-
-        <input type="submit" value="Register"/>
+        
+        {% for field in form %}
+        <div class="form-group" style="margin: 2rem auto;">
+          <label for="exampleInputEmail1" style="width: 15rem;">{{field.label}}</label>
+          {{field}}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Register" class="btn btn-primary" style="margin: 1rem 12rem;"/>
     </form>
-    <p>Already a user? <a style="text-decoration: none;" href="{% url 'login' %}">Login</a></p>
+    <p style="margin: 0 10rem;">Already a user? <a style="text-decoration: none;" href="{% url 'login' %}">Login</a></p>
 </div
 {% endif %}
 
