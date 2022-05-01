@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-8">
-    <h5>{{room_count}} rooms available</h5>
+    <h5>Arena Rooms</h5>
+    <p>{{room_count}} rooms available</p>
   </div>
   {% if request.user == user %}
   <div class="col-4">
@@ -17,7 +18,7 @@
 
 <div>
   {% for room in rooms%}
-  <div class="card" style="margin-top: 15px; background-color: #212529">
+  <div class="card" style="background-color: #212529">
     <div class="card-header" style="color: rgb(63, 127, 245)">
       <a href="/user-profile/{{room.host.id}}">@{{room.host.username}}</a>
     </div>
