@@ -139,3 +139,4 @@ CORS_ALLOW_ALL_ORIGINS: True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 django_heroku.settings(locals())
+DEBUG = False
