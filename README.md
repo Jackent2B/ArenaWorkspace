@@ -2,7 +2,7 @@
 
 ArenaWorkspace is a community building platform. Users have the ability to communicate with text messaging in public chat rooms and build communities from across the world...
 
-![ArenaWorkspace](https://user-images.githubusercontent.com/50449265/166183258-5be20c3f-c298-4b5f-985f-a495f3081bc5.png)
+![ArenaWorkspace](https://user-images.githubusercontent.com/50449265/166183795-9e2a5671-e9b1-474d-97b7-221e16e4a1d0.png)
 
 ## Website Link
 
