@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <style>
-      body{
+      body {
         margin-top: 5rem;
         background-color: #21272e;
         color: aliceblue;
@@ -22,18 +22,10 @@
   </head>
   <body>
     {% include 'navbar.html' %} {% if messages %}
-    <ul class="messages">
+    <ul class="messages" style="margin: 0 2rem">
       {% for message in messages %}
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{ message }}
-        <button
-          type="button"
-          class="close"
-          data-dismiss="alert"
-          aria-label="Close"
-        >
-          <span aria-hidden="true"></span>
-        </button>
       </div>
       {% endfor %}
     </ul>
