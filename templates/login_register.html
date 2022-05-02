@@ -22,6 +22,12 @@
 {% else %}
  <div class="container" style="max-width: 35rem;padding-top: 2rem;">
     <h3 style="text-align: center;">Register Page</h3>
+    <h6>Password Security:</h6>
+    <ul class="list-group">
+      <li class="list-group-item" style="background-color: #212529;color: rgb(63, 127, 245);">Password Should be Alpha-Numeric in nature</li>
+      <li class="list-group-item" style="background-color: #212529;color: rgb(63, 127, 245)">Your Username Should not come in your Password</li>
+      <li class="list-group-item" style="background-color: #212529;color: rgb(63, 127, 245)">Password Should NOT be a generic one eg. abc@13</li>
+    </ul>
     <form method="POST" action="">
         {% csrf_token %}
         
